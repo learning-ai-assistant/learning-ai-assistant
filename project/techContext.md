@@ -30,7 +30,7 @@
 
 - Architecture, contracts и durable technical decisions должны жить в `docs/`.
 - Durable repository context должен жить в `project/`.
-- Temporary execution context должен жить в `operational_scope/` после migration rename.
+- Temporary execution context должен жить в `operational_scope/`.
 - Comments, docstrings, identifiers и commit messages в code остаются на English.
 
 ## Related entry points
