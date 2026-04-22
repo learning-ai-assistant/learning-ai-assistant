@@ -95,6 +95,14 @@ Runtime проекта собирается из отдельных сервис
 - [`services/user_service/`](services/user_service/README.md) — пользователи, auth, метрики.
 - [`services/web_ui_service/`](services/web_ui_service/README.md) — frontend и backend пользовательского интерфейса.
 
+Upstream repositories сервисов:
+
+- `agent_service`: <https://github.com/learning-ai-assistant/agent_service>
+- `web_ui_service`: <https://github.com/learning-ai-assistant/web_ui_service>
+- `user_service`: <https://github.com/learning-ai-assistant/user_service>
+- `test_generator`: <https://github.com/learning-ai-assistant/test_generator>
+- `rag`: <https://github.com/learning-ai-assistant/rag>
+
 ## Данные и хранение результатов
 
 - **Obsidian Vault**: исходные заметки пользователя (предполагается, что vault под git).
@@ -128,6 +136,16 @@ hsm sync
 ### 0. Подготовка nested repos
 
 Для разработки и локальной сборки нужно заранее разместить сервисы в `services/` как отдельные nested git repos:
+
+Рекомендуемый источник для клонирования nested repos:
+
+```bash
+git clone https://github.com/learning-ai-assistant/agent_service services/agent_service
+git clone https://github.com/learning-ai-assistant/web_ui_service services/web_ui_service
+git clone https://github.com/learning-ai-assistant/user_service services/user_service
+git clone https://github.com/learning-ai-assistant/test_generator services/test_generator
+git clone https://github.com/learning-ai-assistant/rag services/rag
+```
 
 ```bash
 ls services
