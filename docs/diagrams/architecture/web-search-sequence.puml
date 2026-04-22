@@ -1,0 +1,41 @@
+@startuml web-search-sequence
+!theme plain
+title Веб-поиск через Tavily (одноразовый контекст)
+
+participant "Пользователь" as U
+participant "Web UI" as UI
+participant "API Gateway" as API
+participant "Orchestrator" as AG
+participant "Retriever" as RET
+participant "Vector DB" as VDB
+participant "Elasticsearch" as ES
+participant "Tavily API" as Tavily
+participant "LLM Service" as LLM
+
+U -> UI: Задает вопрос требующий актуальной информации
+UI -> API: POST /api/ask {question, require_web_search: true}
+API -> AG: Запрос с веб-поиском
+
+AG -> RET: retrieve(context)
+
+par Векторный поиск в локальных источниках
+    RET -> VDB: semantic_search(query)
+    VDB --> RET: local_chunks
+else Полнотекстовый поиск в локальных источниках
+    RET -> ES: fulltext_search(query)
+    ES --> RET: local_matches
+end
+
+RET --> AG: local_context
+
+AG -> Tavily: search_web(query + local_context)
+Tavily --> AG: web_results
+
+AG -> LLM: generate_answer(question, local_context + web_results)
+LLM --> AG: answer_with_citations
+
+AG --> API: ответ + источники (локальные + веб)
+API --> UI: результат с provenance
+UI --> U: Отображение ответа с цитированием веб-источников
+
+@enduml

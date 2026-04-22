@@ -1,0 +1,32 @@
+@startuml data-processing-flow
+!theme plain
+title Детальный flow обработки данных
+
+start
+
+:Raw Data;
+
+if (Data Type) then (File Upload)
+  :Save to Data Storage;
+else (API/Stream)
+  :Save Raw Snapshot;
+endif
+
+:Parse & Extract Text;
+
+:Smart Chunking (512-2048 tokens);
+
+split
+  :Generate Embeddings;
+  :Store in Vector DB with metadata;
+split again
+  :Index in Elasticsearch with full text;
+end split
+
+:Update Status: ready;
+
+:Notify UI/Orchestrator;
+
+stop
+
+@enduml

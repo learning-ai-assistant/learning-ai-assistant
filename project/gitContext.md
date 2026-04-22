@@ -7,6 +7,12 @@
 
 ## Nested repositories
 
+### `services/*`
+
+- Path: `services/agent_service/`, `services/rag/`, `services/test_generator/`, `services/user_service/`, `services/web_ui_service/`
+- Role: product services imported as standalone nested git repositories instead of git submodules in the root runtime layout.
+- Git behavior: changes inside each service must be reviewed and committed in that service's own git context.
+
 ### `.kilo/`
 
 - Path: `.kilo/`

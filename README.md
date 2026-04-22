@@ -84,6 +84,17 @@
 
 Подробности: [`docs/product-proposal.md`](docs/product-proposal.md)
 
+## Модульная структура
+
+Runtime проекта собирается из отдельных сервисов в `services/`.
+Каждый каталог внутри `services/` является самостоятельным nested git repo, а не git submodule.
+
+- [`services/agent_service/`](services/agent_service/README.md) — основной оркестратор системы.
+- [`services/rag/`](services/rag/README.md) — retrieval и knowledge search.
+- [`services/test_generator/`](services/test_generator/README.md) — генерация и проверка квизов.
+- [`services/user_service/`](services/user_service/README.md) — пользователи, auth, метрики.
+- [`services/web_ui_service/`](services/web_ui_service/README.md) — frontend и backend пользовательского интерфейса.
+
 ## Данные и хранение результатов
 
 - **Obsidian Vault**: исходные заметки пользователя (предполагается, что vault под git).
@@ -111,6 +122,81 @@ hsm service mode <name> dev
 # применяем изменения
 hsm sync
 ```
+
+## Запуск сервисов
+
+### 0. Подготовка nested repos
+
+Перед запуском убедитесь, что сервисы уже присутствуют в `services/` как отдельные nested git repos:
+
+```bash
+ls services
+```
+
+Ожидается такой состав:
+
+```text
+agent_service
+rag
+test_generator
+user_service
+web_ui_service
+```
+
+### 1. Настройка переменных окружения
+
+Можно либо восстановить env-файлы из архива, либо создать их из шаблонов.
+
+Ручной вариант:
+
+```bash
+cp services/agent_service/.env_example services/agent_service/.env
+cp services/rag/.env.example services/rag/.env
+cp services/test_generator/.env.example services/test_generator/.env
+cp services/user_service/.env.example services/user_service/.env
+```
+
+Восстановление из backup:
+
+```bash
+chmod +x restore-envs.sh
+./restore-envs.sh [path_to_archive]
+```
+
+### 2. Bootstrap нового окружения
+
+Для первичной инициализации Docker networks, volumes, RAG data и User Service:
+
+```bash
+chmod +x init-new-server.sh
+./init-new-server.sh [prod|dev]
+```
+
+Скрипт поднимает инфраструктуру через nested repos в `services/` и инициализирует базовые данные.
+
+### 3. DEV запуск
+
+```bash
+./start-dev.sh
+./stop-dev.sh
+```
+
+### 4. PROD запуск
+
+Текущий PROD workflow использует prod-образы с тегами Docker Hub namespace `medphisiker`.
+Если требуется публикация или pull приватных образов, сначала авторизуйтесь в Docker Hub:
+
+```bash
+docker login
+```
+
+```bash
+./start-prod.sh
+./stop-prod.sh
+```
+
+`build-prod.sh` нужен для локальной сборки образов с тегами `medphisiker/...`.
+`push-prod.sh` остается отдельным шагом публикации образов.
 
 ## Документы
 

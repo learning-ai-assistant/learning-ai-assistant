@@ -1,0 +1,546 @@
+{
+  "about": {
+    "id": "about",
+    "title": "Начать учиться",
+    "url": "https://education.yandex.ru/handbook/ml/article/about",
+    "cached_at": "2025-11-16T17:12:38.534680",
+    "file_path": "cache\\about.md",
+    "size": 1825
+  },
+  "pervie-shagi": {
+    "id": "pervie-shagi",
+    "title": "Первые шаги",
+    "url": "https://education.yandex.ru/handbook/ml/article/pervie-shagi",
+    "cached_at": "2025-11-16T17:12:41.861052",
+    "file_path": "cache\\pervie-shagi.md",
+    "size": 7762
+  },
+  "mashinnoye-obucheniye": {
+    "id": "mashinnoye-obucheniye",
+    "title": "Машинное обучение",
+    "url": "https://education.yandex.ru/handbook/ml/article/mashinnoye-obucheniye",
+    "cached_at": "2025-11-16T17:12:45.130148",
+    "file_path": "cache\\mashinnoye-obucheniye.md",
+    "size": 38706
+  },
+  "linear-models": {
+    "id": "linear-models",
+    "title": "Линейные модели",
+    "url": "https://education.yandex.ru/handbook/ml/article/linear-models",
+    "cached_at": "2025-11-16T17:12:48.081743",
+    "file_path": "cache\\linear-models.md",
+    "size": 65487
+  },
+  "metricheskiye-metody": {
+    "id": "metricheskiye-metody",
+    "title": "Метрические методы",
+    "url": "https://education.yandex.ru/handbook/ml/article/metricheskiye-metody",
+    "cached_at": "2025-11-16T17:12:52.829265",
+    "file_path": "cache\\metricheskiye-metody.md",
+    "size": 32096
+  },
+  "reshayushchiye-derevya": {
+    "id": "reshayushchiye-derevya",
+    "title": "Решающие деревья",
+    "url": "https://education.yandex.ru/handbook/ml/article/reshayushchiye-derevya",
+    "cached_at": "2025-11-16T17:12:54.612703",
+    "file_path": "cache\\reshayushchiye-derevya.md",
+    "size": 34919
+  },
+  "ansambli-v-mashinnom-obuchenii": {
+    "id": "ansambli-v-mashinnom-obuchenii",
+    "title": "Ансамбли в машинном обучении",
+    "url": "https://education.yandex.ru/handbook/ml/article/ansambli-v-mashinnom-obuchenii",
+    "cached_at": "2025-11-16T17:12:57.942814",
+    "file_path": "cache\\ansambli-v-mashinnom-obuchenii.md",
+    "size": 14636
+  },
+  "gradientnyj-busting": {
+    "id": "gradientnyj-busting",
+    "title": "Градиентный бустинг",
+    "url": "https://education.yandex.ru/handbook/ml/article/gradientnyj-busting",
+    "cached_at": "2025-11-16T17:13:00.626368",
+    "file_path": "cache\\gradientnyj-busting.md",
+    "size": 22640
+  },
+  "metriki-klassifikacii-i-regressii": {
+    "id": "metriki-klassifikacii-i-regressii",
+    "title": "Метрики классификации и регрессии",
+    "url": "https://education.yandex.ru/handbook/ml/article/metriki-klassifikacii-i-regressii",
+    "cached_at": "2025-11-16T17:13:03.657233",
+    "file_path": "cache\\metriki-klassifikacii-i-regressii.md",
+    "size": 40434
+  },
+  "kross-validaciya": {
+    "id": "kross-validaciya",
+    "title": "Кросс-валидация",
+    "url": "https://education.yandex.ru/handbook/ml/article/kross-validaciya",
+    "cached_at": "2025-11-16T17:13:07.534545",
+    "file_path": "cache\\kross-validaciya.md",
+    "size": 27074
+  },
+  "podbor-giperparametrov": {
+    "id": "podbor-giperparametrov",
+    "title": "Подбор гиперпараметров",
+    "url": "https://education.yandex.ru/handbook/ml/article/podbor-giperparametrov",
+    "cached_at": "2025-11-16T17:13:09.642005",
+    "file_path": "cache\\podbor-giperparametrov.md",
+    "size": 40276
+  },
+  "veroyatnostnyj-podhod-v-ml": {
+    "id": "veroyatnostnyj-podhod-v-ml",
+    "title": "Вероятностный подход в ML",
+    "url": "https://education.yandex.ru/handbook/ml/article/veroyatnostnyj-podhod-v-ml",
+    "cached_at": "2025-11-16T17:13:12.691063",
+    "file_path": "cache\\veroyatnostnyj-podhod-v-ml.md",
+    "size": 14720
+  },
+  "eksponencialnyj-klass-raspredelenij-i-princip-maksimalnoj-entropii": {
+    "id": "eksponencialnyj-klass-raspredelenij-i-princip-maksimalnoj-entropii",
+    "title": "Экспоненциальный класс распределений и принцип максимальной энтропии",
+    "url": "https://education.yandex.ru/handbook/ml/article/eksponencialnyj-klass-raspredelenij-i-princip-maksimalnoj-entropii",
+    "cached_at": "2025-11-16T17:13:15.941990",
+    "file_path": "cache\\eksponencialnyj-klass-raspredelenij-i-princip-maksimalnoj-entropii.md",
+    "size": 15736
+  },
+  "obobshyonnye-linejnye-modeli": {
+    "id": "obobshyonnye-linejnye-modeli",
+    "title": "Обобщённые линейные модели",
+    "url": "https://education.yandex.ru/handbook/ml/article/obobshyonnye-linejnye-modeli",
+    "cached_at": "2025-11-16T17:13:18.323671",
+    "file_path": "cache\\obobshyonnye-linejnye-modeli.md",
+    "size": 8411
+  },
+  "kak-ocenivat-veroyatnosti": {
+    "id": "kak-ocenivat-veroyatnosti",
+    "title": "Как оценивать вероятности",
+    "url": "https://education.yandex.ru/handbook/ml/article/kak-ocenivat-veroyatnosti",
+    "cached_at": "2025-11-16T17:13:21.766742",
+    "file_path": "cache\\kak-ocenivat-veroyatnosti.md",
+    "size": 11050
+  },
+  "generativnyj-podhod-k-klassifikacii": {
+    "id": "generativnyj-podhod-k-klassifikacii",
+    "title": "Генеративный подход к классификации",
+    "url": "https://education.yandex.ru/handbook/ml/article/generativnyj-podhod-k-klassifikacii",
+    "cached_at": "2025-11-16T17:13:24.491884",
+    "file_path": "cache\\generativnyj-podhod-k-klassifikacii.md",
+    "size": 12096
+  },
+  "bajesovskij-podhod-k-ocenivaniyu": {
+    "id": "bajesovskij-podhod-k-ocenivaniyu",
+    "title": "Байесовский подход к оцениванию",
+    "url": "https://education.yandex.ru/handbook/ml/article/bajesovskij-podhod-k-ocenivaniyu",
+    "cached_at": "2025-11-16T17:13:27.779612",
+    "file_path": "cache\\bajesovskij-podhod-k-ocenivaniyu.md",
+    "size": 27613
+  },
+  "modeli-s-latentnymi-peremennymi": {
+    "id": "modeli-s-latentnymi-peremennymi",
+    "title": "Модели с латентными переменными",
+    "url": "https://education.yandex.ru/handbook/ml/article/modeli-s-latentnymi-peremennymi",
+    "cached_at": "2025-11-16T17:13:31.102779",
+    "file_path": "cache\\modeli-s-latentnymi-peremennymi.md",
+    "size": 17627
+  },
+  "nejronnye-seti": {
+    "id": "nejronnye-seti",
+    "title": "Нейронные сети",
+    "url": "https://education.yandex.ru/handbook/ml/article/nejronnye-seti",
+    "cached_at": "2025-11-16T17:13:33.724282",
+    "file_path": "cache\\nejronnye-seti.md",
+    "size": 4679
+  },
+  "pervoe-znakomstvo-s-polnosvyaznymi-nejrosetyami": {
+    "id": "pervoe-znakomstvo-s-polnosvyaznymi-nejrosetyami",
+    "title": "Первое знакомство с полносвязными нейросетями",
+    "url": "https://education.yandex.ru/handbook/ml/article/pervoe-znakomstvo-s-polnosvyaznymi-nejrosetyami",
+    "cached_at": "2025-11-16T17:13:36.947449",
+    "file_path": "cache\\pervoe-znakomstvo-s-polnosvyaznymi-nejrosetyami.md",
+    "size": 19319
+  },
+  "metod-obratnogo-rasprostraneniya-oshibki": {
+    "id": "metod-obratnogo-rasprostraneniya-oshibki",
+    "title": "Метод обратного распространения ошибки",
+    "url": "https://education.yandex.ru/handbook/ml/article/metod-obratnogo-rasprostraneniya-oshibki",
+    "cached_at": "2025-11-16T17:13:40.505797",
+    "file_path": "cache\\metod-obratnogo-rasprostraneniya-oshibki.md",
+    "size": 11156
+  },
+  "tonkosti-obucheniya": {
+    "id": "tonkosti-obucheniya",
+    "title": "Тонкости обучения",
+    "url": "https://education.yandex.ru/handbook/ml/article/tonkosti-obucheniya",
+    "cached_at": "2025-11-16T17:13:42.411317",
+    "file_path": "cache\\tonkosti-obucheniya.md",
+    "size": 25172
+  },
+  "svyortochnye-nejroseti": {
+    "id": "svyortochnye-nejroseti",
+    "title": "Свёрточные нейросети",
+    "url": "https://education.yandex.ru/handbook/ml/article/svyortochnye-nejroseti",
+    "cached_at": "2025-11-16T17:13:45.583798",
+    "file_path": "cache\\svyortochnye-nejroseti.md",
+    "size": 33265
+  },
+  "nejroseti-dlya-raboty-s-posledovatelnostyami": {
+    "id": "nejroseti-dlya-raboty-s-posledovatelnostyami",
+    "title": "Нейросети для работы с последовательностями",
+    "url": "https://education.yandex.ru/handbook/ml/article/nejroseti-dlya-raboty-s-posledovatelnostyami",
+    "cached_at": "2025-11-16T17:13:49.310873",
+    "file_path": "cache\\nejroseti-dlya-raboty-s-posledovatelnostyami.md",
+    "size": 44234
+  },
+  "transformery": {
+    "id": "transformery",
+    "title": "Трансформеры",
+    "url": "https://education.yandex.ru/handbook/ml/article/transformery",
+    "cached_at": "2025-11-16T17:13:52.067253",
+    "file_path": "cache\\transformery.md",
+    "size": 18134
+  },
+  "grafovye-nejronnye-seti": {
+    "id": "grafovye-nejronnye-seti",
+    "title": "Графовые нейронные сети",
+    "url": "https://education.yandex.ru/handbook/ml/article/grafovye-nejronnye-seti",
+    "cached_at": "2025-11-16T17:13:54.981097",
+    "file_path": "cache\\grafovye-nejronnye-seti.md",
+    "size": 24051
+  },
+  "nejroseti-dlya-oblakov-tochek": {
+    "id": "nejroseti-dlya-oblakov-tochek",
+    "title": "Нейросети для облаков точек",
+    "url": "https://education.yandex.ru/handbook/ml/article/nejroseti-dlya-oblakov-tochek",
+    "cached_at": "2025-11-16T17:13:57.717599",
+    "file_path": "cache\\nejroseti-dlya-oblakov-tochek.md",
+    "size": 21331
+  },
+  "obuchenie-predstavlenij": {
+    "id": "obuchenie-predstavlenij",
+    "title": "Обучение представлений",
+    "url": "https://education.yandex.ru/handbook/ml/article/obuchenie-predstavlenij",
+    "cached_at": "2025-11-16T17:14:00.639800",
+    "file_path": "cache\\obuchenie-predstavlenij.md",
+    "size": 33027
+  },
+  "distillyaciya-znanij": {
+    "id": "distillyaciya-znanij",
+    "title": "Дистилляция знаний",
+    "url": "https://education.yandex.ru/handbook/ml/article/distillyaciya-znanij",
+    "cached_at": "2025-11-16T17:14:03.487072",
+    "file_path": "cache\\distillyaciya-znanij.md",
+    "size": 45970
+  },
+  "vvedenie-v-generativnoe-modelirovanie": {
+    "id": "vvedenie-v-generativnoe-modelirovanie",
+    "title": "Введение в генеративное моделирование",
+    "url": "https://education.yandex.ru/handbook/ml/article/vvedenie-v-generativnoe-modelirovanie",
+    "cached_at": "2025-11-16T17:14:06.549250",
+    "file_path": "cache\\vvedenie-v-generativnoe-modelirovanie.md",
+    "size": 9325
+  },
+  "variational-autoencoder-(vae)": {
+    "id": "variational-autoencoder-(vae)",
+    "title": "Variational Autoencoder (VAE)",
+    "url": "https://education.yandex.ru/handbook/ml/article/variational-autoencoder-(vae)",
+    "cached_at": "2025-11-16T17:14:09.829930",
+    "file_path": "cache\\variational-autoencoder-(vae).md",
+    "size": 51221
+  },
+  "generativno-sostyazatelnye-seti-(gan)": {
+    "id": "generativno-sostyazatelnye-seti-(gan)",
+    "title": "Генеративно-состязательные сети (GAN)",
+    "url": "https://education.yandex.ru/handbook/ml/article/generativno-sostyazatelnye-seti-(gan)",
+    "cached_at": "2025-11-16T17:14:13.106918",
+    "file_path": "cache\\generativno-sostyazatelnye-seti-(gan).md",
+    "size": 48217
+  },
+  "normalizuyushie-potoki": {
+    "id": "normalizuyushie-potoki",
+    "title": "Нормализующие потоки",
+    "url": "https://education.yandex.ru/handbook/ml/article/normalizuyushie-potoki",
+    "cached_at": "2025-11-16T17:14:16.383203",
+    "file_path": "cache\\normalizuyushie-potoki.md",
+    "size": 18119
+  },
+  "diffuzionnye-modeli": {
+    "id": "diffuzionnye-modeli",
+    "title": "Диффузионные модели",
+    "url": "https://education.yandex.ru/handbook/ml/article/diffuzionnye-modeli",
+    "cached_at": "2025-11-16T17:14:18.827627",
+    "file_path": "cache\\diffuzionnye-modeli.md",
+    "size": 16155
+  },
+  "yazykovye-modeli": {
+    "id": "yazykovye-modeli",
+    "title": "Языковые модели",
+    "url": "https://education.yandex.ru/handbook/ml/article/yazykovye-modeli",
+    "cached_at": "2025-11-16T17:14:22.047026",
+    "file_path": "cache\\yazykovye-modeli.md",
+    "size": 35763
+  },
+  "intro-recsys": {
+    "id": "intro-recsys",
+    "title": "Введение в рекомендательные системы",
+    "url": "https://education.yandex.ru/handbook/ml/article/intro-recsys",
+    "cached_at": "2025-11-16T17:14:25.162233",
+    "file_path": "cache\\intro-recsys.md",
+    "size": 16458
+  },
+  "rekomendacii-na-osnove-matrichnyh-razlozhenij": {
+    "id": "rekomendacii-na-osnove-matrichnyh-razlozhenij",
+    "title": "Рекомендации на основе матричных разложений",
+    "url": "https://education.yandex.ru/handbook/ml/article/rekomendacii-na-osnove-matrichnyh-razlozhenij",
+    "cached_at": "2025-11-16T17:14:27.461400",
+    "file_path": "cache\\rekomendacii-na-osnove-matrichnyh-razlozhenij.md",
+    "size": 15828
+  },
+  "kontentnye-rekomendacii": {
+    "id": "kontentnye-rekomendacii",
+    "title": "Контентные рекомендации",
+    "url": "https://education.yandex.ru/handbook/ml/article/kontentnye-rekomendacii",
+    "cached_at": "2025-11-16T17:14:30.408052",
+    "file_path": "cache\\kontentnye-rekomendacii.md",
+    "size": 12214
+  },
+  "horoshie-svojstva-rekomendatelnyh-sistem": {
+    "id": "horoshie-svojstva-rekomendatelnyh-sistem",
+    "title": "Хорошие свойства рекомендательных систем",
+    "url": "https://education.yandex.ru/handbook/ml/article/horoshie-svojstva-rekomendatelnyh-sistem",
+    "cached_at": "2025-11-16T17:14:33.534056",
+    "file_path": "cache\\horoshie-svojstva-rekomendatelnyh-sistem.md",
+    "size": 9225
+  },
+  "klasterizaciya": {
+    "id": "klasterizaciya",
+    "title": "Кластеризация",
+    "url": "https://education.yandex.ru/handbook/ml/article/klasterizaciya",
+    "cached_at": "2025-11-16T17:14:37.016509",
+    "file_path": "cache\\klasterizaciya.md",
+    "size": 31732
+  },
+  "vremennye-ryady": {
+    "id": "vremennye-ryady",
+    "title": "Временные ряды",
+    "url": "https://education.yandex.ru/handbook/ml/article/vremennye-ryady",
+    "cached_at": "2025-11-16T17:14:39.575721",
+    "file_path": "cache\\vremennye-ryady.md",
+    "size": 18265
+  },
+  "analitika-vremennyh-ryadov": {
+    "id": "analitika-vremennyh-ryadov",
+    "title": "Аналитика временных рядов",
+    "url": "https://education.yandex.ru/handbook/ml/article/analitika-vremennyh-ryadov",
+    "cached_at": "2025-11-16T17:14:42.864319",
+    "file_path": "cache\\analitika-vremennyh-ryadov.md",
+    "size": 13696
+  },
+  "modeli-vida-arima": {
+    "id": "modeli-vida-arima",
+    "title": "Модели вида ARIMA",
+    "url": "https://education.yandex.ru/handbook/ml/article/modeli-vida-arima",
+    "cached_at": "2025-11-16T17:14:46.128085",
+    "file_path": "cache\\modeli-vida-arima.md",
+    "size": 11091
+  },
+  "zadacha-ranzhirovaniya": {
+    "id": "zadacha-ranzhirovaniya",
+    "title": "Задача ранжирования",
+    "url": "https://education.yandex.ru/handbook/ml/article/zadacha-ranzhirovaniya",
+    "cached_at": "2025-11-16T17:14:49.568491",
+    "file_path": "cache\\zadacha-ranzhirovaniya.md",
+    "size": 34080
+  },
+  "obuchenie-s-podkrepleniem": {
+    "id": "obuchenie-s-podkrepleniem",
+    "title": "Обучение с подкреплением",
+    "url": "https://education.yandex.ru/handbook/ml/article/obuchenie-s-podkrepleniem",
+    "cached_at": "2025-11-16T17:14:51.540724",
+    "file_path": "cache\\obuchenie-s-podkrepleniem.md",
+    "size": 49899
+  },
+  "bias-variance-decomposition": {
+    "id": "bias-variance-decomposition",
+    "title": "Bias-variance decomposition",
+    "url": "https://education.yandex.ru/handbook/ml/article/bias-variance-decomposition",
+    "cached_at": "2025-11-16T17:14:57.231702",
+    "file_path": "cache\\bias-variance-decomposition.md",
+    "size": 12779
+  },
+  "teoriya-glubokogo-obucheniya-vvedenie": {
+    "id": "teoriya-glubokogo-obucheniya-vvedenie",
+    "title": "Введение в теорию глубокого обучения",
+    "url": "https://education.yandex.ru/handbook/ml/article/teoriya-glubokogo-obucheniya-vvedenie",
+    "cached_at": "2025-11-16T17:15:00.591494",
+    "file_path": "cache\\teoriya-glubokogo-obucheniya-vvedenie.md",
+    "size": 10976
+  },
+  "obobshayushaya-sposobnost-klassicheskaya-teoriya": {
+    "id": "obobshayushaya-sposobnost-klassicheskaya-teoriya",
+    "title": "Обобщающая способность – классическая теория",
+    "url": "https://education.yandex.ru/handbook/ml/article/obobshayushaya-sposobnost-klassicheskaya-teoriya",
+    "cached_at": "2025-11-16T17:15:03.459840",
+    "file_path": "cache\\obobshayushaya-sposobnost-klassicheskaya-teoriya.md",
+    "size": 13649
+  },
+  "pac-bajesovskie-ocenki-riska": {
+    "id": "pac-bajesovskie-ocenki-riska",
+    "title": "PAC-байесовские оценки риска",
+    "url": "https://education.yandex.ru/handbook/ml/article/pac-bajesovskie-ocenki-riska",
+    "cached_at": "2025-11-16T17:15:06.419653",
+    "file_path": "cache\\pac-bajesovskie-ocenki-riska.md",
+    "size": 9740
+  },
+  "seti-beskonechnoj-shiriny": {
+    "id": "seti-beskonechnoj-shiriny",
+    "title": "Сети бесконечной ширины",
+    "url": "https://education.yandex.ru/handbook/ml/article/seti-beskonechnoj-shiriny",
+    "cached_at": "2025-11-16T17:15:09.806108",
+    "file_path": "cache\\seti-beskonechnoj-shiriny.md",
+    "size": 23707
+  },
+  "landshaft-funkcii-poter": {
+    "id": "landshaft-funkcii-poter",
+    "title": "Ландшафт функции потерь",
+    "url": "https://education.yandex.ru/handbook/ml/article/landshaft-funkcii-poter",
+    "cached_at": "2025-11-16T17:15:12.890967",
+    "file_path": "cache\\landshaft-funkcii-poter.md",
+    "size": 11830
+  },
+  "implicit-bias": {
+    "id": "implicit-bias",
+    "title": "Implicit bias",
+    "url": "https://education.yandex.ru/handbook/ml/article/implicit-bias",
+    "cached_at": "2025-11-16T17:15:15.672296",
+    "file_path": "cache\\implicit-bias.md",
+    "size": 6007
+  },
+  "optimizaciya-v-ml": {
+    "id": "optimizaciya-v-ml",
+    "title": "Оптимизация в ML",
+    "url": "https://education.yandex.ru/handbook/ml/article/optimizaciya-v-ml",
+    "cached_at": "2025-11-16T17:15:18.647811",
+    "file_path": "cache\\optimizaciya-v-ml.md",
+    "size": 36197
+  },
+  "proksimalnye-metody": {
+    "id": "proksimalnye-metody",
+    "title": "Проксимальные методы",
+    "url": "https://education.yandex.ru/handbook/ml/article/proksimalnye-metody",
+    "cached_at": "2025-11-16T17:15:22.054161",
+    "file_path": "cache\\proksimalnye-metody.md",
+    "size": 6266
+  },
+  "metody-vtorogo-poryadka": {
+    "id": "metody-vtorogo-poryadka",
+    "title": "Методы второго порядка",
+    "url": "https://education.yandex.ru/handbook/ml/article/metody-vtorogo-poryadka",
+    "cached_at": "2025-11-16T17:15:25.074065",
+    "file_path": "cache\\metody-vtorogo-poryadka.md",
+    "size": 16281
+  },
+  "shodimost-sgd": {
+    "id": "shodimost-sgd",
+    "title": "Сходимость SGD",
+    "url": "https://education.yandex.ru/handbook/ml/article/shodimost-sgd",
+    "cached_at": "2025-11-16T17:15:27.763199",
+    "file_path": "cache\\shodimost-sgd.md",
+    "size": 14991
+  },
+  "onlajn-obuchenie-i-stohasticheskaya-optimizaciya": {
+    "id": "onlajn-obuchenie-i-stohasticheskaya-optimizaciya",
+    "title": "Введение в онлайн-обучение",
+    "url": "https://education.yandex.ru/handbook/ml/article/onlajn-obuchenie-i-stohasticheskaya-optimizaciya",
+    "cached_at": "2025-11-16T17:15:30.599542",
+    "file_path": "cache\\onlajn-obuchenie-i-stohasticheskaya-optimizaciya.md",
+    "size": 29749
+  },
+  "adaptivnyj-ftrl": {
+    "id": "adaptivnyj-ftrl",
+    "title": "Адаптивный FTRL",
+    "url": "https://education.yandex.ru/handbook/ml/article/adaptivnyj-ftrl",
+    "cached_at": "2025-11-16T17:15:34.686366",
+    "file_path": "cache\\adaptivnyj-ftrl.md",
+    "size": 22533
+  },
+  "regulyarizaciya-v-onlajn-obuchenii": {
+    "id": "regulyarizaciya-v-onlajn-obuchenii",
+    "title": "Регуляризация в онлайн-обучении",
+    "url": "https://education.yandex.ru/handbook/ml/article/regulyarizaciya-v-onlajn-obuchenii",
+    "cached_at": "2025-11-16T17:15:36.999745",
+    "file_path": "cache\\regulyarizaciya-v-onlajn-obuchenii.md",
+    "size": 17707
+  },
+  "metody-optimizacii-v-deep-learning": {
+    "id": "metody-optimizacii-v-deep-learning",
+    "title": "Методы оптимизации в Deep Learning",
+    "url": "https://education.yandex.ru/handbook/ml/article/metody-optimizacii-v-deep-learning",
+    "cached_at": "2025-11-16T17:15:40.140832",
+    "file_path": "cache\\metody-optimizacii-v-deep-learning.md",
+    "size": 38711
+  },
+  "matrichnoe-differencirovanie": {
+    "id": "matrichnoe-differencirovanie",
+    "title": "Матричное дифференцирование",
+    "url": "https://education.yandex.ru/handbook/ml/article/matrichnoe-differencirovanie",
+    "cached_at": "2025-11-16T17:15:42.489328",
+    "file_path": "cache\\matrichnoe-differencirovanie.md",
+    "size": 13474
+  },
+  "matrichnaya-faktorizaciya": {
+    "id": "matrichnaya-faktorizaciya",
+    "title": "Матричная факторизация",
+    "url": "https://education.yandex.ru/handbook/ml/article/matrichnaya-faktorizaciya",
+    "cached_at": "2025-11-16T17:15:46.080096",
+    "file_path": "cache\\matrichnaya-faktorizaciya.md",
+    "size": 37300
+  },
+  "veroyatnostnye-raspredeleniya": {
+    "id": "veroyatnostnye-raspredeleniya",
+    "title": "Вероятностные распределения",
+    "url": "https://education.yandex.ru/handbook/ml/article/veroyatnostnye-raspredeleniya",
+    "cached_at": "2025-11-16T17:15:49.492523",
+    "file_path": "cache\\veroyatnostnye-raspredeleniya.md",
+    "size": 26195
+  },
+  "mnogomernye-raspredeleniya": {
+    "id": "mnogomernye-raspredeleniya",
+    "title": "Многомерные распределения",
+    "url": "https://education.yandex.ru/handbook/ml/article/mnogomernye-raspredeleniya",
+    "cached_at": "2025-11-16T17:15:52.419018",
+    "file_path": "cache\\mnogomernye-raspredeleniya.md",
+    "size": 14347
+  },
+  "nezavisimost-i-uslovnye-raspredeleniya-veroyatnostej": {
+    "id": "nezavisimost-i-uslovnye-raspredeleniya-veroyatnostej",
+    "title": "Независимость и условные распределения вероятностей",
+    "url": "https://education.yandex.ru/handbook/ml/article/nezavisimost-i-uslovnye-raspredeleniya-veroyatnostej",
+    "cached_at": "2025-11-16T17:15:56.078132",
+    "file_path": "cache\\nezavisimost-i-uslovnye-raspredeleniya-veroyatnostej.md",
+    "size": 12184
+  },
+  "parametricheskie-ocenki": {
+    "id": "parametricheskie-ocenki",
+    "title": "Параметрические оценки",
+    "url": "https://education.yandex.ru/handbook/ml/article/parametricheskie-ocenki",
+    "cached_at": "2025-11-16T17:15:57.798386",
+    "file_path": "cache\\parametricheskie-ocenki.md",
+    "size": 17675
+  },
+  "entropiya-i-semejstvo-eksponencialnyh-raspredelenij": {
+    "id": "entropiya-i-semejstvo-eksponencialnyh-raspredelenij",
+    "title": "Энтропия и семейство экспоненциальных распределений",
+    "url": "https://education.yandex.ru/handbook/ml/article/entropiya-i-semejstvo-eksponencialnyh-raspredelenij",
+    "cached_at": "2025-11-16T17:16:00.799991",
+    "file_path": "cache\\entropiya-i-semejstvo-eksponencialnyh-raspredelenij.md",
+    "size": 22815
+  },
+  "kraudsorsing": {
+    "id": "kraudsorsing",
+    "title": "Краудсорсинг",
+    "url": "https://education.yandex.ru/handbook/ml/article/kraudsorsing",
+    "cached_at": "2025-11-16T17:14:54.381913",
+    "file_path": "cache\\kraudsorsing.md",
+    "size": 48903
+  }
+}

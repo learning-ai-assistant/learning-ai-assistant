@@ -1,0 +1,180 @@
+name: life_learning_assistant_prod
+
+services:
+  # 0. User Service - Production
+  user_db:
+    image: postgres:15.15-alpine
+    container_name: user-db-prod
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: user_db
+    volumes:
+      - user_postgres_data:/var/lib/postgresql/data
+    networks:
+      - user_service_network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  user_service:
+    image: medphisiker/user_service:v001
+    container_name: user-service-prod
+    env_file:
+      - .env
+    environment:
+      - POSTGRES_HOST=user_db
+      - POSTGRES_PORT=5432
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=user_db
+      - SECRET_KEY=${SECRET_KEY:-prod_secret_key_change_me}
+    ports:
+      - "8010:8000"
+    depends_on:
+      user_db:
+        condition: service_healthy
+    networks:
+      - user_service_network
+      - web_ui_network
+    restart: unless-stopped
+
+  # 1. RAG Service - Production
+  rag:
+    image: medphisiker/rag-api:v001
+    container_name: rag-api-prod
+    env_file:
+      - .env
+    ports:
+      - "8000:8000"
+    environment:
+      - QDRANT_HOST=qdrant
+      - REDIS_HOST=redis
+    networks:
+      - rag_network
+      - web_ui_network
+    depends_on:
+      - qdrant
+      - redis
+    restart: unless-stopped
+
+  qdrant:
+    image: qdrant/qdrant:v1.12.4
+    container_name: qdrant-prod
+    ports:
+      - "6333:6333"
+      - "6334:6334"
+    volumes:
+      - qdrant_data:/qdrant/storage
+    networks:
+      - rag_network
+    restart: unless-stopped
+
+  redis:
+    image: redis:7.4.2-alpine
+    container_name: redis-prod
+    ports:
+      - "6379:6379"
+    networks:
+      - rag_network
+    restart: unless-stopped
+
+  # 2. Test Generator - Production
+  test_generator:
+    image: medphisiker/test_generator:v001
+    container_name: test-generator-prod
+    env_file:
+      - .env
+    ports:
+      - "52812:8000"
+    networks:
+      - test_generator_network
+      - web_ui_network
+    restart: unless-stopped
+
+  # 3. Agent Service - Production
+  agent_service:
+    image: medphisiker/agent_service:v001
+    container_name: agent-service-prod
+    env_file:
+      - .env
+    ports:
+      - "8270:8270"
+    volumes:
+      - ./services/agent_service/app_settings-prod.json:/app/app_settings.json:ro
+    environment:
+      - RAG_SERVICE_URL=http://rag-api:8000
+      - TEST_GENERATOR_SERVICE_URL=http://test-generator-api:8000
+      - WEB_UI_URL=http://web-backend:8151
+    command: uv run python app.py --settings app_settings.json
+    networks:
+      - web_ui_network
+      - rag_network
+      - test_generator_network
+    depends_on:
+      - rag
+      - test_generator
+    restart: unless-stopped
+
+  # 4. Web UI Backend - Production
+  web_ui_backend:
+    image: medphisiker/web_ui_backend:v001
+    container_name: web-ui-backend-prod
+    env_file:
+      - .env
+    ports:
+      - "8151:8151"
+    volumes:
+      - ./services/web_ui_service/backend/app_settings-prod.json:/app/app_settings.json:ro
+    environment:
+      - BACKEND_PORT=8151
+      - AGENT_SERVICE_URL=http://agent-service:8270
+      - USER_SERVICE_URL=http://user-service-prod:8000
+      - WS_TOKEN=${WS_TOKEN}
+      - SETTINGS_FILE=app_settings.json
+    networks:
+      - web_ui_network
+    restart: unless-stopped
+
+  # 5. Web UI Frontend - Production
+  web_ui_frontend:
+    image: medphisiker/web_ui_frontend:v001
+    container_name: web-ui-frontend-prod
+    ports:
+      - "8150:80"
+    depends_on:
+      - web_ui_backend
+    networks:
+      - web_ui_network
+    restart: unless-stopped
+
+  # 6. Algo Sandbox - Production (using dev image as sandbox is generic)
+  algo-sandbox:
+    image: medphisiker/web_ui_backend:v001
+    container_name: algo-sandbox-prod
+    volumes:
+      - ./data/algo_problems:/home/sandbox/app
+    networks:
+      - web_ui_network
+    restart: unless-stopped
+
+networks:
+  web_ui_network:
+    external: true
+    name: web_ui_network
+  rag_network:
+    external: true
+    name: rag_rag_network
+  test_generator_network:
+    external: true
+    name: test_generator_default
+  user_service_network:
+    external: true
+    name: user_service_network
+
+volumes:
+  qdrant_data:
+  user_postgres_data:

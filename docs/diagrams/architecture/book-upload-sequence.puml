@@ -1,0 +1,38 @@
+@startuml book-upload-sequence
+!theme plain
+title Загрузка и обработка книги
+
+participant "Пользователь" as U
+participant "Web UI" as UI
+participant "API Gateway" as API
+participant "Data Storage" as FS
+participant "PostgreSQL" as DB
+participant "Task Queue" as MQ
+participant "Worker" as Worker
+participant "Embedding Service" as EMB
+participant "Vector DB" as VDB
+participant "Elasticsearch" as ES
+
+U -> UI: Загружает книгу
+UI -> API: POST /api/book/upload
+API -> FS: store_raw_file
+API -> DB: create_record(status: pending)
+API -> MQ: enqueue(process_book)
+API --> UI: 202 {task_id}
+
+MQ -> Worker: process_book_task
+Worker -> FS: read_file
+Worker -> Worker: parse & chunk_text
+
+par Генерация эмбеддингов
+    Worker -> EMB: embed_chunks(chunks)
+    EMB --> Worker: vectors
+    Worker -> VDB: upsert(vectors)
+else Индексация текста
+    Worker -> ES: index_text_chunks(chunks)
+end
+
+Worker -> DB: update_status(ready)
+Worker --> MQ: task_completed
+
+@enduml

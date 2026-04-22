@@ -1,0 +1,24 @@
+@startuml quiz-generation-sequence
+!theme plain
+title Генерация квиза (sync + async)
+
+participant "Пользователь" as U
+participant "Web UI" as UI
+participant "Web Backend" as API
+participant "Agent Service" as AG
+participant "RAG Service" as RET
+participant "Test Generator" as GEN
+
+U -> UI: "Сгенерируй 10 вопросов по главе X"
+UI -> API: POST /api/agent/run
+API -> AG: create_quiz_request
+
+AG -> RET: retrieve(chapter X)
+RET --> AG: fragments
+AG -> GEN: generate_quiz(content=fragments)
+GEN --> AG: quiz_json (Async)
+
+AG --> API: {quiz_data}
+API --> UI: Отображение квиза
+
+@enduml

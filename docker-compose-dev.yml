@@ -1,0 +1,177 @@
+name: life_learning_assistant
+
+services:
+  # 0. User Service - Управление пользователями
+  user_db:
+    image: postgres:15.15-alpine
+    container_name: user-db-dev
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: user_db
+    volumes:
+      - user_postgres_data:/var/lib/postgresql/data
+    networks:
+      - user_service_network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  user_service:
+    container_name: user-service-dev
+    build:
+      context: ./services/user_service
+      dockerfile: Dockerfile-dev
+    volumes:
+      - ./services/user_service:/app
+    environment:
+      - POSTGRES_HOST=user_db
+      - POSTGRES_PORT=5432
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=user_db
+      - SECRET_KEY=dev_secret_key_change_me_in_prod
+    ports:
+      - "127.0.0.1:8010:8000"
+    depends_on:
+      user_db:
+        condition: service_healthy
+    networks:
+      - user_service_network
+      - web_ui_network
+
+  # 1. RAG Service - Базовый сервис для поиска
+  rag:
+    container_name: rag-api-dev
+    build:
+      context: ./services/rag
+      dockerfile: Dockerfile
+    ports:
+      - "127.0.0.1:8000:8000"
+    environment:
+      - QDRANT_HOST=qdrant
+      - REDIS_HOST=redis
+    networks:
+      - rag_network
+      - web_ui_network
+    depends_on:
+      - qdrant
+      - redis
+
+  qdrant:
+    container_name: qdrant-dev
+    image: qdrant/qdrant:v1.12.4
+    ports:
+      - "127.0.0.1:6333:6333"
+      - "127.0.0.1:6334:6334"
+    volumes:
+      - qdrant_data:/qdrant/storage
+    networks:
+      - rag_network
+
+  redis:
+    container_name: redis-dev
+    image: redis:7.4.2-alpine
+    ports:
+      - "127.0.0.1:6379:6379"
+    networks:
+      - rag_network
+
+  # 2. Test Generator - Генерация квизов
+  test_generator:
+    container_name: test-generator-dev
+    build:
+      context: ./services/test_generator
+      dockerfile: Dockerfile
+    ports:
+      - "127.0.0.1:52812:8000"
+    networks:
+      - test_generator_network
+      - web_ui_network
+
+  # 3. Agent Service - Оркестратор
+  agent_service:
+    container_name: agent-service-dev
+    build:
+      context: ./services/agent_service
+      dockerfile: Dockerfile-dev
+    ports:
+      - "127.0.0.1:8270:8270"
+    volumes:
+      - ./services/agent_service:/app
+    environment:
+      - RAG_SERVICE_URL=http://rag:8000
+      - TEST_GENERATOR_SERVICE_URL=http://test_generator:8000
+      - WEB_UI_URL=http://web_ui_backend:8151
+    command: uv run python app.py --settings app_settings-dev.json
+    networks:
+      - web_ui_network
+      - rag_network
+      - test_generator_network
+    depends_on:
+      - rag
+      - test_generator
+
+  # 4. Web UI Backend
+  web_ui_backend:
+    container_name: web-ui-backend-dev
+    build:
+      context: ./services/web_ui_service/backend
+      dockerfile: Dockerfile-dev
+    ports:
+      - "127.0.0.1:8151:8151"
+    volumes:
+      - ./services/web_ui_service/backend:/app
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - BACKEND_PORT=8151
+      - AGENT_SERVICE_URL=http://agent_service:8270
+      - USER_SERVICE_URL=http://user_service:8000
+      - WS_TOKEN=dev_token_123
+      - SETTINGS_FILE=app_settings-dev.json
+    networks:
+      - web_ui_network
+
+  # 5. Algo Sandbox
+  algo-sandbox:
+    container_name: algo-sandbox-dev
+    build:
+      context: ./services/web_ui_service/backend
+      dockerfile: Dockerfile-sandbox
+    volumes:
+      - ./data/algo_problems:/home/sandbox/app
+    networks:
+      - web_ui_network
+
+  # 6. Web UI Frontend
+  web_ui_frontend:
+    container_name: web-ui-frontend-dev
+    build:
+      context: ./services/web_ui_service/frontend
+      dockerfile: Dockerfile-dev
+    ports:
+      - "8150:80"
+    depends_on:
+      - web_ui_backend
+    networks:
+      - web_ui_network
+
+networks:
+  web_ui_network:
+    external: true
+    name: web_ui_network
+  rag_network:
+    external: true
+    name: rag_rag_network
+  test_generator_network:
+    external: true
+    name: test_generator_default
+  user_service_network:
+    external: true
+    name: user_service_network
+
+volumes:
+  qdrant_data:
+  user_postgres_data:

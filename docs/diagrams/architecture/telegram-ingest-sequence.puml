@@ -1,0 +1,38 @@
+@startuml telegram-ingest-sequence
+!theme plain
+title Telegram ingest (background)
+
+participant "Telegram" as TG
+participant "Telegram Adapter" as Adapter
+participant "Data Storage" as FS
+participant "PostgreSQL" as DB
+participant "Task Queue" as MQ
+participant "Worker" as Worker
+participant "Vector DB" as VDB
+participant "Elasticsearch" as ES
+
+TG -> Adapter: new_message
+Adapter -> FS: save_raw_message
+Adapter -> DB: save_metadata(status: pending)
+Adapter -> MQ: enqueue(process_message)
+
+MQ -> Worker: process_message_task
+Worker -> Worker: extract_text & tag_message
+Worker -> DB: save_processed_metadata
+
+alt Если сообщение релевантно
+    Worker -> MQ: enqueue(index_message)
+    MQ -> Worker: index_task
+    
+    par Семантический индекс
+        Worker -> EMB: embed_message
+        EMB --> Worker: vector
+        Worker -> VDB: upsert(vector)
+    else Полнотекстовый индекс
+        Worker -> ES: index_message_text
+    end
+    
+    Worker -> DB: mark_as_indexed
+end
+
+@enduml

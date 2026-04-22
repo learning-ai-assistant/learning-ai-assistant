@@ -1,0 +1,98 @@
+@startuml
+!define RECTANGLE class
+skinparam defaultFontName Arial
+skinparam roundCorner 10
+skinparam classBackgroundColor #FFFFFF
+skinparam classBorderColor #000000
+skinparam shadowing false
+
+package "Внешний уровень" {
+  [Пользователь] as U
+  [Web UI\nReact Frontend] as UI
+}
+
+package "Сервисный слой" {
+  [Web Backend\nFastAPI] as API
+  [Agent Service\nOrchestrator] as AG
+}
+
+package "Основные сервисы" {
+  [LLM Service\n(Z.ai / OpenAI)] as LLM
+  [RAG Service\n(Retrieval)] as RET
+  [Test Generator\n(Quiz Engine)] as GEN
+}
+
+package "Базы данных" #F3E5F5 {
+  [Qdrant\nVector DB] as VDB
+  [Redis\nCache & Storage] as REDIS
+}
+
+package "Данные пользователя" #E8F5E9 {
+  [User Storage\nPostgreSQL] as DB
+  [Data Storage\nLocal FS] as FS
+}
+
+' ================== СВЯЗИ ==================
+U --> UI : HTTP / WebSocket
+UI --> API : API Calls
+API --> AG : Request
+
+AG --> LLM : LLM Calls
+AG --> RET : Context Retrieval
+AG --> SRC : Fetch Data
+AG --> FUNC : Execute Feature
+AG --> MQ : Async Tasks
+
+RET --> VDB : Vector Search
+RET --> IDX : Text Search
+
+SRC --> FS : Store Files
+SRC --> VDB : Index Content
+SRC --> IDX : Index Content
+
+FUNC --> DB : Save Results
+FUNC --> DB : Read User Data
+
+MQ --> WP : Background Jobs
+WP --> FS : Process Files
+WP --> VDB : Update Vectors
+WP --> IDX : Update Index
+WP --> DB : Write Metadata
+
+' ================== СТИЛИ ==================
+skinparam class {
+  BackgroundColor<<AG>> #E1F5FE
+  BorderColor<<AG>> #01579B
+    
+  BackgroundColor<<LLM>> #FFF3E0
+  BorderColor<<LLM>> #E65100
+    
+  BackgroundColor<<RET>> #F3E5F5
+  BorderColor<<RET>> #4A148C
+    
+  BackgroundColor<<SRC>> #F1F8E9
+  BorderColor<<SRC>> #33691E
+    
+  BackgroundColor<<FUNC>> #EDE7F6
+  BorderColor<<FUNC>> #4527A0
+    
+  BackgroundColor<<MQ>> #FFF9C4
+  BorderColor<<MQ>> #FBC02D
+    
+  BackgroundColor<<WP>> #FFF9C4
+  BorderColor<<WP>> #F57F17
+    
+  BackgroundColor<<DB>> #E0F7FA
+  BorderColor<<DB>> #006064
+    
+  BackgroundColor<<FS>> #E0F2F1
+  BorderColor<<FS>> #004D40
+    
+  BackgroundColor<<VDB>> #E8F5E9
+  BorderColor<<VDB>> #1B5E20
+    
+  BackgroundColor<<REDIS>> #FBE9E7
+  BorderColor<<REDIS>> #BF360C
+}
+
+@enduml

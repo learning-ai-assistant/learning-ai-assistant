@@ -1,0 +1,31 @@
+@startuml quick-qa-sequence
+!theme plain
+title Быстрый Q&A с provenance
+
+participant "Пользователь" as U
+participant "Web UI" as UI
+participant "Web Backend" as API
+participant "Agent Service" as AG
+participant "RAG Service" as RET
+participant "Qdrant" as VDB
+participant "LLM (Z.ai)" as LLM
+
+U -> UI: Задает вопрос
+UI -> API: POST /api/agent/run {question}
+API -> AG: Запрос
+
+AG -> RET: retrieve(context)
+
+RET -> VDB: hybrid_search(query)
+VDB --> RET: similar_chunks
+
+RET --> AG: fragments + metadata
+
+AG -> LLM: prompt + context
+LLM --> AG: answer
+
+AG --> API: ответ + provenance
+API --> UI: результат с источниками
+UI --> U: Отображение ответа с цитированием
+
+@enduml
