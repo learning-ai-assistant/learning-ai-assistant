@@ -9,7 +9,7 @@
 ## Main technical areas
 
 - `docs/` содержит long-lived engineering documentation.
-- `tasks_descriptions/` пока содержит legacy execution-layer artifacts, target rename — `operational_scope/`.
+- `operational_scope/` содержит execution-layer artifacts.
 - `sot_layers/` содержит methodology и reference assets, не являющиеся local engineering SoT root-проекта.
 - `.kilo/` содержит project-local Kilo runtime artifacts.
 

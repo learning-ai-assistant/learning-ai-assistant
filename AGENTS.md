@@ -8,12 +8,10 @@
 
 Используй такой порядок чтения:
 
-1. `project/index.md` для durable repository context, git boundaries и migration state.
-2. [`project/index.md`](project/index.md) для durable repository context, git boundaries и migration state.
+1. [`project/index.md`](project/index.md) для durable repository context, git boundaries и current repository layout.
 3. `docs/` для architecture, contracts и других engineering Source of Truth artifacts.
-4. `operational_scope/` для execution-layer контекста текущей итерации после завершения migration rename.
-5. `tasks_descriptions/` только как временный legacy execution layer, пока rename в `operational_scope/` еще не выполнен.
-6. `.kilo/` для Kilo-specific project rules, agents и runtime configuration.
+4. [`operational_scope/`](operational_scope/) для execution-layer контекста текущей итерации.
+5. `.kilo/` для Kilo-specific project rules, agents и runtime configuration.
 
 Если temporary planning artifact конфликтует с `docs/`, следуй `docs/`.
 

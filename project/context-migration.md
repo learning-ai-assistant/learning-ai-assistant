@@ -1,33 +1,31 @@
 # Context Migration
 
-## Migration direction
+## Completed migration direction
 
-Root project переводится:
+Root project переведен:
 
 - от legacy `.kilocode/` context model;
 - от execution layer в `tasks_descriptions/`;
-- к новой layered model: `AGENTS.md` + `project/` + `operational_scope/` + `.kilo/`.
+- к layered model: `AGENTS.md` + `project/` + `operational_scope/` + `.kilo/`.
 
-## Current coexistence state
+## Current model
 
 - [`AGENTS.md`](../AGENTS.md) и `project/` materialize-ятся как новый durable entry system.
-- `tasks_descriptions/` пока еще является active legacy execution layer.
-- `operational_scope/` является target name и target execution layer после rename.
-- `.kilocode/` пока еще существует как legacy nested repo, но не является target steady-state layout.
+- `operational_scope/` materialized как execution layer.
+- `.kilo/` materialized как runtime/config layer нового Kilo.
 
-## Temporary compatibility rules
+## Active rules
 
-- Пока rename не завершён, ссылки на execution artifacts могут временно вести в `tasks_descriptions/`.
-- Новые durable context decisions нужно фиксировать в `project/` и `docs/`, а не в `.kilocode/`.
-- Изменения в `.kilocode/` допустимы только как migration-maintenance до cutover.
+- Durable context decisions фиксируются в `project/` и `docs/`.
+- Execution artifacts фиксируются в `operational_scope/`.
+- Kilo runtime/config artifacts фиксируются в `.kilo/`.
 
-## Target state
+## Historical note
 
-- `tasks_descriptions/` renamed to `operational_scope/`
-- `.kilocode/` removed
-- Root project uses only `AGENTS.md`, `project/`, `operational_scope/`, `docs/` and `.kilo/` as steady-state context/runtime layers.
+- Legacy `.kilocode/` и `tasks_descriptions/` считаются superseded layers.
+- Steady-state model проекта: `AGENTS.md`, `project/`, `docs/`, `operational_scope/` и `.kilo/`.
 
 ## Related entry points
 
 - [`entry-points.md`](entry-points.md) для loading order.
-- [`gitContext.md`](gitContext.md) для repository ownership during migration.
+- [`gitContext.md`](gitContext.md) для repository ownership.

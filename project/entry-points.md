@@ -9,9 +9,8 @@
 1. `AGENTS.md` — thin router artifact.
 2. [`index.md`](index.md) и релевантные файлы в `project/` — durable repository context.
 3. `docs/` — engineering Source of Truth для architecture, contracts и long-lived technical decisions.
-4. `operational_scope/` — target execution layer для plans, tasks, backlog и discussion artifacts.
-5. `tasks_descriptions/` — temporary legacy execution layer, пока rename в `operational_scope/` еще не завершён.
-6. `.kilo/` — Kilo-specific runtime behavior, rules и agents.
+4. [`../operational_scope/`](../operational_scope/) — execution layer для plans, tasks, backlog и discussion artifacts.
+5. `.kilo/` — Kilo-specific runtime behavior, rules и agents.
 
 ## Ownership split
 
