@@ -103,6 +103,34 @@ Upstream repositories сервисов:
 - `test_generator`: <https://github.com/learning-ai-assistant/test_generator>
 - `rag`: <https://github.com/learning-ai-assistant/rag>
 
+## Интерфейс
+
+Ниже показаны ключевые страницы пользовательского интерфейса из `web_ui_service`.
+
+### Login page
+
+Экран входа пользователя в систему перед переходом к персональным сценариям и рабочему пространству.
+
+![Login page](repo_pics/web_ui_login_page.png)
+
+### Identity selection
+
+Экран выбора пользовательской роли и режима взаимодействия с ассистентом.
+
+![Identity selection](repo_pics/web_ui_chose_your_person.png)
+
+### Coding interview
+
+Интерфейс алгоритмического интервью: постановка задачи, рабочий процесс решения и взаимодействие с assistant-driven flow.
+
+![Coding interview](repo_pics/web_ui_coding_interview.png)
+
+### Profile page
+
+Профиль пользователя со сводкой настроек и прогресса.
+
+![Profile page](repo_pics/web_ui_profile_page.png)
+
 ## Данные и хранение результатов
 
 - **Obsidian Vault**: исходные заметки пользователя (предполагается, что vault под git).
